@@ -22,12 +22,15 @@ export class HiveListComponent implements OnInit {
   }
 
   onDelete(hiveId: number) {
-    var hive = this.hives.find(h => h.id == hiveId);
-    this.hiveService.setHiveStatus(hiveId, true).subscribe(c => hive.isDeleted = true);
+    this.setHiveStatus(hiveId, true);
   }
 
   onRestore(hiveId: number) {
+    this.setHiveStatus(hiveId, false);
+  }
+
+  private setHiveStatus(hiveId: number, deletedStatus: boolean) {
     var hive = this.hives.find(h => h.id == hiveId);
-    this.hiveService.setHiveStatus(hiveId, false).subscribe(c => hive.isDeleted = false);
+    this.hiveService.setHiveStatus(hiveId, deletedStatus).subscribe(c => hive.isDeleted = deletedStatus);
   }
 }
