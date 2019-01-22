@@ -13,6 +13,7 @@ export class HiveFormComponent implements OnInit {
 
   hive = new Hive(0, "", "", "", false, "");
   existed = false;
+
   alertType: string;
   alertMessage: string;
   hasAlert: boolean;
@@ -29,8 +30,11 @@ export class HiveFormComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(p => {
       if (p['id'] === undefined) return;
-      this.hiveService.getHive(p['id']).subscribe(h => this.hive = h);
-      this.existed = true;
+      this.hiveService.getHive(p['id']).subscribe(h => {
+        this.hive = h;
+        this.existed = true;
+      },
+      error => this.showAlert(this.errorAlertType, error));
     });
   }
 

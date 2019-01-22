@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Hive } from '../models/hive';
 import { HiveListItem } from '../models/hive-list-item';
@@ -16,7 +16,7 @@ export class HiveService {
   private hiveNotFound = "Hive not found.";
   private hiveBadRequest = "Invalid hive information.";
   private hiveConflict = "Hive with given Code exists.";
-  private hiveSectionNotFound = "Hive section not found.";
+  private hiveDeleteConflict = "Hive must have 'Deleted' status.";
 
   constructor(
     private http: HttpClient,
@@ -33,7 +33,9 @@ export class HiveService {
   getHive(hiveId: number): Observable<Hive> {
     return this.http.get<Hive>(`${this.url}${hiveId}`)
       .pipe(
-        catchError(this.errorHandler.handleError({}))
+        catchError(this.errorHandler.handleError({
+          404: this.hiveNotFound
+        }))
       );
   }
 
@@ -41,7 +43,7 @@ export class HiveService {
     return this.http.get<Array<HiveSectionListItem>>(`${this.url}${hiveId}/sections`)
       .pipe(
         catchError(this.errorHandler.handleError({
-          404: this.hiveSectionNotFound
+          404: this.hiveNotFound
         }))
       );
   }
@@ -71,6 +73,7 @@ export class HiveService {
     return this.http.delete<Hive>(`${this.url}${hiveId}`)
       .pipe(
         catchError(this.errorHandler.handleError({
+          409: this.hiveDeleteConflict,
           404: this.hiveNotFound
         }))
       );
