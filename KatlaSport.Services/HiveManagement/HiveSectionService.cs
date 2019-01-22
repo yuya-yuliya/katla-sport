@@ -85,6 +85,12 @@ namespace KatlaSport.Services.HiveManagement
                 throw new RequestedResourceHasConflictException("code");
             }
 
+            var dbHives = await _context.Hives.Where(p => p.Id == createRequest.StoreHiveId).ToArrayAsync();
+            if (dbHives.Length == 0)
+            {
+                throw new RequestedResourceHasConflictException("Store Hive");
+            }
+
             var dbHiveSection = Mapper.Map<UpdateHiveSectionRequest, DbHiveSection>(createRequest);
             dbHiveSection.CreatedBy = _userContext.UserId;
             dbHiveSection.LastUpdatedBy = _userContext.UserId;
@@ -102,6 +108,12 @@ namespace KatlaSport.Services.HiveManagement
             if (dbHiveSections.Length > 0)
             {
                 throw new RequestedResourceHasConflictException("code");
+            }
+
+            var dbHives = await _context.Hives.Where(p => p.Id == updateRequest.StoreHiveId).ToArrayAsync();
+            if (dbHives.Length == 0)
+            {
+                throw new RequestedResourceHasConflictException("Store Hive");
             }
 
             dbHiveSections = await _context.Sections.Where(p => p.Id == hiveSectionId).ToArrayAsync();
