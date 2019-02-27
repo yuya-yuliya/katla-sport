@@ -72,6 +72,7 @@
     <Compile Include="HiveManagement\UpdateHiveSectionRequestValidator.cs" />
     <Compile Include="ProductManagement\IProductCatalogueService.cs" />
     <Compile Include="ProductManagement\IProductCategoryService.cs" />
+    <Compile Include="ProductManagement\IProductStoreRequestService.cs" />
     <Compile Include="ProductManagement\IProductStoreService.cs" />
     <Compile Include="ProductManagement\Product.cs" />
     <Compile Include="ProductManagement\ProductCategory.cs" />
@@ -79,10 +80,13 @@
     <Compile Include="ProductManagement\ProductCategoryProductListItem.cs" />
     <Compile Include="ProductManagement\ProductListItem.cs" />
     <Compile Include="ProductManagement\ProductStoreItem.cs" />
+    <Compile Include="ProductManagement\ProductStoreItemRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductCategoryRequestValidator.cs" />
     <Compile Include="ProductManagement\UpdateProductRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductRequestValidator.cs" />
+    <Compile Include="ProductManagement\UpdateRequestRequest.cs" />
+    <Compile Include="ProductManagement\UpdateRequestRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
