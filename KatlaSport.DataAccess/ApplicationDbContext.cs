@@ -60,6 +60,11 @@ namespace KatlaSport.DataAccess
         public DbSet<StoreItem> StoreItems { get; set; }
 
         /// <summary>
+        /// Gets or sets a <see cref="DbSet"/> for <see cref="ProductStoreItemRequest"/>.
+        /// </summary>
+        public DbSet<ProductStoreItemRequest> StoreItemsRequests { get; set; }
+
+        /// <summary>
         /// Gets or sets a <see cref="DbSet"/> for <see cref="StoreHiveSectionCategory"/>.
         /// </summary>
         public DbSet<StoreHiveSectionCategory> SectionCategories { get; set; }

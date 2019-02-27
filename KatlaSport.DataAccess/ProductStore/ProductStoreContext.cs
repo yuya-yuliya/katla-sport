@@ -8,5 +8,7 @@
         }
 
         public IEntitySet<StoreItem> Items => GetDbSet<StoreItem>();
+
+        public IEntitySet<ProductStoreItemRequest> Requests => GetDbSet<ProductStoreItemRequest>();
     }
 }

@@ -9,5 +9,7 @@
         /// Gets a set of <see cref="StoreItem"/> entities.
         /// </summary>
         IEntitySet<StoreItem> Items { get; }
+
+        IEntitySet<ProductStoreItemRequest> Requests { get; }
     }
 }
