@@ -9,11 +9,19 @@ using KatlaSport.Services.ProductManagement;
 
 namespace KatlaSport.Services.StoreManagment
 {
+    /// <summary>
+    /// Represents a product store service.
+    /// </summary>
     public class ProductStoreService : IProductStoreService
     {
         private readonly IProductStoreContext _context;
         private readonly IUserContext _userContext;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductStoreService"/> class with specified <see cref="IProductCatalogueContext"/>.
+        /// </summary>
+        /// <param name="context">A <see cref="IProductStoreContext"/>.</param>
+        /// <param name="userContext">A <see cref="IUserContext"/>.</param>
         public ProductStoreService(IProductStoreContext context, IUserContext userContext)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
