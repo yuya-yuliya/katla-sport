@@ -8,11 +8,13 @@ namespace KatlaSport.DataAccess.ProductStore
         {
             ToTable("product_store_items_request");
             HasKey(r => r.Id);
-            HasRequired(r => r.Item).WithMany(i => i.Requests).HasForeignKey(r => r.StoreItemId);
-            Property(r => r.Id).HasColumnName("product_store_items_request_id").IsRequired();
-            Property(r => r.StoreItemId).HasColumnName("product_store_items_request_item_id").IsRequired();
-            Property(r => r.Quantity).HasColumnName("product_store_items_request_quantity").IsRequired();
-            Property(r => r.Completed).HasColumnName("product_store_items_request_completed").IsRequired();
+            HasRequired(r => r.Product).WithMany(i => i.Requests).HasForeignKey(r => r.ProductId);
+            HasRequired(r => r.HiveSection).WithMany(i => i.Requests).HasForeignKey(r => r.HiveSectionId);
+            Property(r => r.Id).HasColumnName("product_store_items_request_id");
+            Property(r => r.Quantity).HasColumnName("product_store_items_request_quantity");
+            Property(r => r.Completed).HasColumnName("product_store_items_request_completed");
+            Property(r => r.HiveSectionId).HasColumnName("product_store_item_request_hive_section_id");
+            Property(r => r.ProductId).HasColumnName("product_store_item_request_product_id");
         }
     }
 }
