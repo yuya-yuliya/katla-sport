@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Product Store List</h2>
+  <table class="table table-nonfluid">
+    <thead>
+      <th scope="col">#</th>
+      <th scope="col">Product Code</th>
+      <th scope="col">Product Name</th>
+      <th score="col">Quantity</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let storeItem of storeItems">
+        <th scope="row">{{storeItem.id}}</th>
+        <td>{{storeItem.product.code}}</td>
+        <td>{{storeItem.product.name}}</td>
+        <td>{{storeItem.quantity}}</td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
