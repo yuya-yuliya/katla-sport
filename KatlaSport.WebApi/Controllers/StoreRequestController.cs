@@ -26,6 +26,17 @@ namespace KatlaSport.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a store product requests.", Type = typeof(ProductStoreItemRequest))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetRequest()
+        {
+            var request = await _productStoreRequestService.GetRequestsAsync();
+            return Ok(request);
+        }
+
+        [HttpGet]
         [Route("{id:int:min(1)}")]
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a store product request.", Type = typeof(ProductStoreItemRequest))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
