@@ -9,10 +9,10 @@ namespace KatlaSport.Services.ProductManagement
     public interface IProductStoreRequestService
     {
         /// <summary>
-        /// Gets a list of active product requests.
+        /// Gets a list of product requests.
         /// </summary>
         /// <returns>A <see cref="Task{List{ProductStoreItemRequest}}"/>.</returns>
-        Task<List<ProductStoreItemRequest>> GetActiveRequestsAsync();
+        Task<List<ProductStoreItemRequest>> GetRequestsAsync();
 
         /// <summary>
         /// Gets a product request with specified identifier.

@@ -13,6 +13,12 @@ namespace KatlaSport.Services.StoreManagment
             CreateMap<DataAccessStoreItemRequest, ProductStoreItemRequest>();
 
             CreateMap<UpdateRequestRequest, DataAccessStoreItemRequest>();
+            CreateMap<UpdateProductStoreItemRequest, DataAccessStoreItem>();
+
+            CreateMap<DataAccessStoreItemRequest, UpdateProductStoreItemRequest>()
+                .ForMember(i => i.Id, opt => opt.MapFrom(p => 0));
+
+            CreateMap<ProductStoreItem, UpdateProductStoreItemRequest>();
         }
     }
 }

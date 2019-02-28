@@ -1,9 +1,12 @@
-﻿namespace KatlaSport.Services.ProductManagement
+﻿using FluentValidation.Attributes;
+
+namespace KatlaSport.Services.ProductManagement
 {
     /// <summary>
-    /// Represents a product store item.
+    /// Represents a request for creating and updating a store product item.
     /// </summary>
-    public class ProductStoreItem
+    [Validator(typeof(UpdateProductStoreItemRequestValidator))]
+    public class UpdateProductStoreItemRequest
     {
         /// <summary>
         /// Gets or sets a producr store item ID.

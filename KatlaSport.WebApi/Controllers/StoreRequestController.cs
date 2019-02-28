@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -51,6 +52,17 @@ namespace KatlaSport.WebApi.Controllers
             var request = await _productStoreRequestService.CreateRequestAsync(createRequest);
             var location = string.Format("/api/requests/{0}", request.Id);
             return Created<ProductStoreItemRequest>(location, request);
+        }
+
+        [HttpPut]
+        [Route("{id:int:min(1)}/completed")]
+        [SwaggerResponse(HttpStatusCode.NoContent, Description = "Sets completed status for an existed product store item request.")]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> SetStatus([FromUri] int id)
+        {
+            await _productStoreRequestService.SetRequestCompletedAsync(id);
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.NoContent));
         }
     }
 }
