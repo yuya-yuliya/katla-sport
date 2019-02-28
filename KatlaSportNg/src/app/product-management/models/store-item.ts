@@ -1,9 +1,8 @@
-import { Product } from "./product";
-
 export class StoreItem {
     constructor(
         public id: number,
-        public product: Product,
+        public productId: number,
+        public hiveSectionID: number,
         public quantity: number
     ) { }
 }

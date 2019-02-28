@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Requests List</h2>
+  <table class="table table-nonfluid">
+    <thead>
+      <th scope="col">#</th>
+      <th scope="col">Product Id</th>
+      <th scope="col">Hive Section Id</th>
+      <th score="col">Quantity</th>
+      <th scope="col">Completed</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of requests">
+        <th scope="row">{{request.id}}</th>
+        <td>{{request.productId}}</td>
+        <td>{{request.hiveSectionId}}</td>
+        <td>{{request.quantity}}</td>
+        <td>{{request.completed}}</td>
+        <td>
+          <span class="btn-toolbar" role="toolbar" aria-label="Product category action buttons" style="display: block; white-space:nowrap;">
+            <div class="btn-group mr-1" role="group" aria-label="Complete group" *ngIf="!request.completed" (click)="onComplete(request.id)">
+              <button  type="button" class="btn btn-success">Completed</button>
+            </div>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

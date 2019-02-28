@@ -85,6 +85,8 @@
     <Compile Include="ProductManagement\UpdateProductCategoryRequestValidator.cs" />
     <Compile Include="ProductManagement\UpdateProductRequest.cs" />
     <Compile Include="ProductManagement\UpdateProductRequestValidator.cs" />
+    <Compile Include="ProductManagement\UpdateProductStoreItemRequest.cs" />
+    <Compile Include="ProductManagement\UpdateProductStoreItemRequestValidator.cs" />
     <Compile Include="ProductManagement\UpdateRequestRequest.cs" />
     <Compile Include="ProductManagement\UpdateRequestRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

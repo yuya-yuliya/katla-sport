@@ -14,7 +14,15 @@ export class ProductRequestService {
     private http: HttpClient
   ) { }
 
+  getRequests(): Observable<Array<StoreItemRequest>> {
+    return this.http.get<Array<StoreItemRequest>>(this.url);
+  }
+
   addRequest(request: StoreItemRequest): Observable<StoreItemRequest> {
     return this.http.post<StoreItemRequest>(`${this.url}`, request);
+  }
+
+  setCompletedStatus(requestId: number): Observable<Object> {
+    return this.http.put(`${this.url}${requestId}/completed`, null);
   }
 }

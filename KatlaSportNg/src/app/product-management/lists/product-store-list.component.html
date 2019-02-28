@@ -3,7 +3,7 @@
   <table class="table table-nonfluid">
     <thead>
       <th scope="col">#</th>
-      <th scope="col">Product Code</th>
+      <th scope="col">Product Id</th>
       <th scope="col">Product Name</th>
       <th score="col">Quantity</th>
       <th scope="col"></th>
@@ -11,8 +11,8 @@
     <tbody>
       <tr *ngFor="let storeItem of storeItems">
         <th scope="row">{{storeItem.id}}</th>
-        <td>{{storeItem.product.code}}</td>
-        <td>{{storeItem.product.name}}</td>
+        <td>{{storeItem.productId}}</td>
+        <td>{{getProductName(storeItem.productId)}}</td>
         <td>{{storeItem.quantity}}</td>
         <td>
         </td>
